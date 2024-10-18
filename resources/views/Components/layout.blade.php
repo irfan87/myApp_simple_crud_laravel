@@ -14,21 +14,19 @@
         <link href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-body-secondary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    My Store
-                    <span class="visually-hidden">(current)</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}" aria-current="active">My Store</a> --}}
+                <x-nav-link href="/" class="navbar-brand" :active="request()->is('/')">My Store</x-nav-link>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('products') }}">Products</a>
-                        </li>
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <x-nav-link href="/products" class="nav-link" :active="request()->is('products')">Products</x-nav-link>
+                    </li>
+                </ul>
                 </div>
             </div>
         </nav>            
